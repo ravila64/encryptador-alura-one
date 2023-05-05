@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint 1:Encriptador Alura-One</title>
+</head>
+<body>
+    <div class="container">
+      <!--entrada mensaje a encriptar-->
+      <textarea id="message" cols="28" rows="5" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
+      <!--Area mensajke encriptado-->
+      <textarea id="msgEncryt" cols="28" rows="5" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
+      <!--boton encriptar-->  
+      <button id="btnEncrypt" class="encriptar">Encriptar</button>
+      <!--boton Desencriptar-->  
+      <button id="btnDesEncrypt" class="Desencriptar">Desencriptar</button>
+      <!--boton copiar-->                  
+      <button id="btnCopy" class="copiar">Copiar</button>
+  </div>    
+  <img src="./img/1.png">
+  <script src="js/myscript.js"></script>
+</body>
+</html>
