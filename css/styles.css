@@ -1,0 +1,160 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: #d2e7de;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+  width: 940px;
+  background: white;
+  margin: 10px auto;
+}
+
+.header{
+  background: #1551a1;
+  overflow: hidden;
+  height: 85px;
+}
+
+.logo{
+  float: left;
+  width: 50px;
+  height: auto;
+  padding: 5px;
+}
+
+.menu h2{
+  color:white;
+  font-size: 12px;
+  padding-right:15px;
+  text-align: left;
+  border: 1px solid white;
+}
+
+.img-logo{
+  display: block;
+  margin: auto;
+  width:75px;
+  height: auto;
+  align-content: center;
+  border: 0px solid white;
+}
+
+/* estilos menu opciones*/ 
+.menu{
+  display: inline-flex;
+  float: right;
+  padding: 35px;
+}
+.menu .titulo{
+  font-size: 20px;
+  padding: 10px auto;
+  align-items:center;
+}
+.opciones li{
+  float:left;  /* flotante*/ 
+  list-style:none;  /* sin puntos en lista*/ 
+}
+.opciones li a{
+  color:white;
+  padding: 20px;
+  text-decoration:none; /* quita subrayado*/
+  border: 1px solid white;
+}
+
+.opciones li a:hover {
+  background: #0d6a2c;
+}
+
+.slider{
+  display: inline;
+  width: 150px;
+  height: 100%;
+}
+
+#message{
+  background-color: #D7F6B7;
+  border-radius: 5px;
+  resize: none;
+  font-style: roboto;
+  text-transform: lowercase;
+  padding: 5px;
+}
+#msgEncryt{
+  background-color: #D7F6B0;
+  border-radius: 5px;
+  resize:none;
+  font-style: italic;
+  text-transform: lowercase;
+  padding: 5px;
+  
+}
+
+.container > textarea {
+  width: 60%;
+  resize:none; 
+  padding: 10px;
+  margin-left: 20px; 
+}
+
+.container .entrada{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 940px;
+  margin-left: 10px;
+}
+
+.container .salida{
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.container .msg-error{
+  display: inline-block;
+  margin-left: 10px;
+
+}
+
+.botones{
+  display: inline-block;
+  width: 300px;
+  border: 1px solid white;
+  padding: 15px 10px;
+  margin: 0px auto;
+}
+
+.caja{
+  overflow: hidden;
+  float:left;
+  width: 380px;
+  margin: 5px;
+  border: 1px solid white;
+  padding: 5px 2px;
+}
+
+.encriptar {
+  width: 90%;
+  height: 30px;
+  background-color: #18f35a;
+  border-radius: 10px 5px;
+}
+
+.desencriptar {
+  width: 90%;
+  height: 30px;
+  background-color: #18f35a;
+  border-radius: 10px 5px;
+}
+
+.copiar {
+  width: 90%;
+  height: 30px;
+  background-color: #18f35a;
+  border-radius: 10px 5px;
+}
+

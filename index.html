@@ -4,22 +4,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <title>sprint 1:Encriptador Alura-One</title>
 </head>
 <body>
-    <div class="container">
-      <!--entrada mensaje a encriptar-->
-      <textarea id="message" cols="28" rows="5" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
-      <!--Area mensajke encriptado-->
-      <textarea id="msgEncryt" cols="28" rows="5" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
-      <!--boton encriptar-->  
-      <button id="btnEncrypt" class="encriptar">Encriptar</button>
-      <!--boton Desencriptar-->  
-      <button id="btnDesEncrypt" class="Desencriptar">Desencriptar</button>
-      <!--boton copiar-->                  
-      <button id="btnCopy" class="copiar">Copiar</button>
+  <div class="container">
+    <header class="header">
+      
+      <div class="logo">
+        <img class="img-logo" src="./img/logo-encriptador.png" alt="logo"/>
+      </div>
+      <nav class="menu">
+        <h2 class="titulo"> Sprint 01 - Alura-One- Encryptador</h2>
+        <ul class="opciones">
+          <li><a href="">INICIO</a></li>
+          <li><a href="">CONTACTO</a></li>
+          <!-- <li><a href="">help</a></li> -->
+        </ul>
+      </nav>
+    </header>
+   <article class="slider">
+      <img src="./img/slider1.png" alt="img slider" width="100%">
+   </article>
+   
+
+      <div class="entrada">
+        <!--entrada mensaje a encriptar-->
+        <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
+        <img src="./img/1.png">
+      </div>
+      <div class="salida">
+        <!--Area mensaje encriptado-->
+        <textarea id="msgEncryt" cols="60" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
+      </div>
+      <div class="msg-error">
+        <!--Area mensajes error-->
+        <textarea id="msgError" cols="40" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
+      </div>
+      <div class="botones">
+        <article class="caja">
+          <!--boton encriptar-->  
+          <button id="btnEncrypt" class="encriptar">Encriptar</button>
+        </article>
+        <article class="caja">
+          <!--boton Desencriptar-->  
+          <button id="btnDesEncrypt" class="desencriptar">Desencriptar</button>
+        </article>
+        <article class="caja">
+          <!--boton copiar-->                  
+          <button id="btnCopy" class="copiar">Copiar</button>
+        </article>
+      </div>
   </div>    
-  <img src="./img/1.png">
+  
   <script src="js/myscript.js"></script>
 </body>
 </html>
