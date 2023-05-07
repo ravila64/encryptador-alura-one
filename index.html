@@ -16,6 +16,7 @@
         <img class="img-logo" src="./img/logo-encriptador.png" alt="logo"/>
       </div>
       <nav class="menu">
+        <h2 class="titulo"</h2>René Avila Alonso</h2>
         <h2 class="titulo"> Sprint 01 - Alura-One- Encriptador</h2>
         <ul class="opciones">
           <li><a href="">INICIO</a></li>
@@ -24,13 +25,9 @@
         </ul>
       </nav>
     </header>
-   <!-- <article class="slider">
-      <img src="./img/slider1.png" alt="img slider" width="100%">
-   </article>
-    -->
-
       <div class="entrada">
         <!--entrada mensaje a encriptar-->
+        <h3>Digite texto de entrada</h3>
         <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
         <img src="./img/1.png">
       </div>
@@ -54,6 +51,10 @@
         <article class="caja">
           <!--boton copiar-->                  
           <button id="btnCopy" class="copiar">Copiar</button>
+        </article>
+        <article class="caja">
+          <!--boton pegar-->                  
+          <button id="btnPaste" class="pegar">Pegar</button>
         </article>
       </div>
   </div>    

@@ -66,17 +66,11 @@ body{
 }
 
 .opciones li a:hover {
-  background: #0d6a2c;
-}
-
-.slider{
-  display: inline;
-  width: 150px;
-  height: 100%;
+  background: #8491f1;
 }
 
 #message{
-  background-color: #D7F6B7;
+  background-color: #86acf9;
   border-radius: 5px;
   resize: none;
   font-style: roboto;
@@ -84,13 +78,18 @@ body{
   padding: 5px;
 }
 #msgEncryt{
-  background-color: #D7F6B0;
+  background-color: #86acf9;
   border-radius: 5px;
   resize:none;
   font-style: italic;
   text-transform: lowercase;
   padding: 5px;
-  
+}
+
+#msgError{
+  background-color: #b5cbf7;
+  border-radius: 5px;
+  resize:none;
 }
 
 .container > textarea {
@@ -122,7 +121,7 @@ body{
 
 .botones{
   display: flex;
-  width: 300px;
+  width: 400px;
   border: 1px solid white;
   padding: 15px 10px;
   margin: 0px auto;
@@ -142,30 +141,53 @@ body{
   width: 100%;
   height: 40px;
   margin-right: 60px;
-  background-color: #18f35a;
-  border-radius: 10px 5px;
-  -webkit-border-radius:;
-  -moz-border-radius:;
-  -ms-border-radius:;
-  -o-border-radius:;
+  background-color: #1551a1;
+  color: white;
+  cursor: pointer;  /*mostrar mano en link*/
+  border-radius: 12px 4px;
+}
+
+.encriptar:hover {
+  background: #376bb9;
 }
 
 .desencriptar {
   width: 100%;
   height: 40px;
   margin-right: 60px;
-  background-color: #18f35a;
+  background-color: #1551a1;
+  color: white;
+  cursor: pointer; /* mostrar mano en link*/
   border-radius: 10px 5px;
-  -webkit-border-radius:;
-  -moz-border-radius:;
-  -ms-border-radius:;
-  -o-border-radius:;
+}
+
+.desencriptar:hover{
+  background: #376bb9;
 }
 
 .copiar {
   width: 100%;
   height: 40px;
-  background-color: #18f35a;
+  background-color: #1551a1;
+  color: white;
+  cursor: pointer; /* mostrar mano en link*/
   border-radius: 10px 5px;
+}
+
+.copiar:hover{
+  background: #376bb9;
+}
+
+.pegar {
+  width: 100%;
+  height: 40px;
+  background-color: #1551a1;
+  color: white;
+  cursor: pointer; /* mostrar mano en link*/
+  border-radius: 10px 5px;
+}
+
+.pegar:hover{
+  background: #376bb9;
 }
 
