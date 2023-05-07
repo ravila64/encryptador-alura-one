@@ -121,11 +121,12 @@ body{
 }
 
 .botones{
-  display: inline-block;
+  display: flex;
   width: 300px;
   border: 1px solid white;
   padding: 15px 10px;
   margin: 0px auto;
+  justify-content: center;
 }
 
 .caja{
@@ -138,22 +139,32 @@ body{
 }
 
 .encriptar {
-  width: 90%;
-  height: 30px;
+  width: 100%;
+  height: 40px;
+  margin-right: 60px;
   background-color: #18f35a;
   border-radius: 10px 5px;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
 }
 
 .desencriptar {
-  width: 90%;
-  height: 30px;
+  width: 100%;
+  height: 40px;
+  margin-right: 60px;
   background-color: #18f35a;
   border-radius: 10px 5px;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
 }
 
 .copiar {
-  width: 90%;
-  height: 30px;
+  width: 100%;
+  height: 40px;
   background-color: #18f35a;
   border-radius: 10px 5px;
 }
