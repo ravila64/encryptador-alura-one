@@ -11,8 +11,8 @@ var array_desencr=[];
 var str_target="";
 
 function encryptar(str){
-  var cadena=str.split(" ");
-  var strend=[];
+  const cadena=String(str).split(' ');
+  const strend=[];
   for (const iterator of cadena) {
     console.log(iterator);
     strend.push(iterator);
@@ -91,8 +91,8 @@ function desencryptar(last){
   return str_target;
 }
 
-function pasar_minusculas(str){
-  return str.toLowerCase();
+function pasar_minusculas(str1){
+  return String(str1).toLowerCase();
 }
 function validar_input(){
   var valida=true;
@@ -113,19 +113,27 @@ function _cut(){
 
 }
 
-let str="RENE avila alonso";
-//str="arroz al ABAD daba la zorra";
-str = pasar_minusculas(str);
-
-if (validar_input(str)){
-
-}else {
-  alert("Debe corregir caracteres especiales cadena de entrada");
+function ejecutar(){
+  //let str="RENE avila alonso";
+  //guardar texto mensaje de ingreso
+  const mensaje = document.getElementById("message").value.trim();
+  console.log(mensaje);
+  str = mensaje;
+  str = pasar_minusculas(mensaje);
+  
+  if (validar_input(str)){
+    alert("Cadena ok, validada...!!!");
+  }else {
+    alert("Debe corregir caracteres especiales cadena de entrada");
+  }
+  var encripto=encryptar(str);
+  if (encripto!=null){
+    alert("Proceso ok, de encriptar...");
+  }
+  
+  array_encr.forEach(element => {
+    console.log(element);
+  });
+  var first=desencryptar(array_encr);
+  console.log(first);
 }
-var last=encryptar(str);
-//console.log("last "+last);
-array_encr.forEach(element => {
-  console.log(element);
-});
-var first=desencryptar(array_encr);
-console.log(first);
