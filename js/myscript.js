@@ -10,7 +10,24 @@ var array_encr=[];
 var array_desencr=[];
 var str_target="";
 
-function encryptar(str){
+// definir botones
+/*enlace html con js*/
+mensaje = document.getElementById("message");
+msgSalida = document.getElementById("msgEncrypt");
+msgError = document.getElementById("msgError");
+/*enlazar botones desde html con js */
+btnEncripta = document.getElementById("btnEncrypt");
+btnDesEncripta = document.getElementById("btnDesEncrypt");
+btnCopiar = document.getElementById("btnCopy");
+btnPegar = document.getElementById("btnPaste");
+
+// llamar codigo encryptar, al presionar boton
+btnEncripta.addEventListener("click",encryptar);
+// ********** funcion encriptar **********
+function encryptar(){
+  const str = mensaje.value.trim();
+  str = pasar_minusculas(str);
+  console.log(str);
   const cadena=String(str).split(' ');
   const strend=[];
   for (const iterator of cadena) {
@@ -25,7 +42,7 @@ function encryptar(str){
       const letra = str[index];
       switch (letra) {
         case 'a':
-          encr=encr.concat('', "ai");;
+          encr=encr.concat('', "ai");
           break;
         case 'e':
           encr=encr.concat('', "enter");
@@ -46,13 +63,26 @@ function encryptar(str){
     //console.log(letra);
   };
   array_encr.push(encr);
-  encr="";
+    encr="";
   });
-  return encr;
+  // colocar texto en salida encriptado y borrar entrada
+  const str1="";
+  array_encr.forEach(element => {
+    str1=str1.concat('',element);
+  });
+  msgSalida.value=str1;
+  mensaje.value="";
+  //return encr;
 }
 
-function desencryptar(last){
+// llamar codigo desencryptar, al presionar boton
+btnDesEncripta .addEventListener("click",desencryptar);
+// ********** funcion encriptar **********
+function desencryptar(){
+  const str = pasar_minusculas(msgSalida.value.trim());
+  const last=String(str).split(' ');
   console.log(last);
+  
   last.forEach(element => {
     var word=element;
     let index = 0;
@@ -88,7 +118,14 @@ function desencryptar(last){
     } // endwhile
     //console.log(str_target);
   });
-  return str_target;
+  // guardar str_target en textArea entrada y borrar textArea salida
+  const str2="";
+  last.forEach(element => {
+    str2=str1.concat('',element);
+  });
+  mensaje.value=str2;
+  msgSalida.value="";
+  // return str_target;
 }
 
 function pasar_minusculas(str1){
@@ -116,11 +153,7 @@ function _cut(){
 function ejecutar(){
   //let str="RENE avila alonso";
   //guardar texto mensaje de ingreso
-  const mensaje = document.getElementById("message").value.trim();
-  console.log(mensaje);
-  str = mensaje;
-  str = pasar_minusculas(mensaje);
-  
+   
   if (validar_input(str)){
     alert("Cadena ok, validada...!!!");
   }else {
