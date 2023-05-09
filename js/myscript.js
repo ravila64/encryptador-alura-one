@@ -6,37 +6,31 @@ La letra "u" es convertida para "ufat"
 console.log(str1.concat(' ', str2));*/
 
 // var globales
-var array_encr=[];
-var array_desencr=[];
-var str_target="";
+const arrayEncr=[];
+const arrayDesc=[];
 
 // definir botones
 /*enlace html con js*/
-mensaje = document.getElementById("message");
-msgSalida = document.getElementById("msgEncrypt");
-msgError = document.getElementById("msgError");
+var mensaje = document.getElementById("message");
+var msgSalida = document.getElementById("msgEncrypt");
+var msgError = document.getElementById("msgError");
 /*enlazar botones desde html con js */
-btnEncripta = document.getElementById("btnEncrypt");
-btnDesEncripta = document.getElementById("btnDesEncrypt");
-btnCopiar = document.getElementById("btnCopy");
-btnPegar = document.getElementById("btnPaste");
+const btnEncripta = document.getElementById("btnEncrypt");
+const btnDesEncripta = document.getElementById("btnDesEncrypt");
+const btnCopiar = document.getElementById("btnCopy");
+const btnPegar = document.getElementById("btnPaste");
 
 // llamar codigo encryptar, al presionar boton
 btnEncripta.addEventListener("click",encryptar);
 // ********** funcion encriptar **********
 function encryptar(){
-  const str = mensaje.value.trim();
-  str = pasar_minusculas(str);
+  //alert("Entra a encriptar");
+  const str = pasar_minusculas(mensaje.value.trim());
   console.log(str);
   const cadena=String(str).split(' ');
-  const strend=[];
-  for (const iterator of cadena) {
-    console.log(iterator);
-    strend.push(iterator);
-  }
-  console.log(strend);
+  console.log(cadena);
   var encr="";
-  strend.forEach(element => {
+  cadena.forEach(element => {
     var str=element+" ";
     for (let index = 0; index < str.length; index++) {
       const letra = str[index];
@@ -62,70 +56,69 @@ function encryptar(){
     }
     //console.log(letra);
   };
-  array_encr.push(encr);
-    encr="";
+  arrayEncr.push(encr);
+  encr="";
   });
+  console.log(arrayEncr);
   // colocar texto en salida encriptado y borrar entrada
-  const str1="";
-  array_encr.forEach(element => {
-    str1=str1.concat('',element);
-  });
-  msgSalida.value=str1;
+  let texto=arrayEncr.join(' ');
+  //console.log("Texto "+texto+ " Tipo "+typeof(texto));
+  msgSalida.value=texto;
   mensaje.value="";
-  //return encr;
+  //console.log("msgSalida Tipo "+typeof(msgSalida));
 }
 
 // llamar codigo desencryptar, al presionar boton
-btnDesEncripta .addEventListener("click",desencryptar);
-// ********** funcion encriptar **********
+btnDesEncripta.addEventListener("click",desencryptar);
+// ********** funcion desencriptar **********
 function desencryptar(){
-  const str = pasar_minusculas(msgSalida.value.trim());
-  const last=String(str).split(' ');
-  console.log(last);
-  
+  alert("Entra a Desencriptar");
+  const str = pasar_minusculas(mensaje.value.trim());
+  const last=String(str).split(' ');   // array
+  console.log("Last "+last);
+  var strTarget="";
+
   last.forEach(element => {
     var word=element;
     let index = 0;
     while (index < word.length ){
       const letra = word[index];
       if((letra!='a')&&(letra!='e')&&(letra!='i')&&(letra!='o')&&(letra!='u')){
-          str_target=str_target.concat('',letra);
+          strTarget=strTarget.concat('',letra);
           index++;
       } else {
          switch (letra) {
             case 'a':
-              str_target=str_target.concat('', "a");
+              strTarget=strTarget.concat('', "a");
               index=index+2;  // ai
               break;
             case 'e':
-              str_target=str_target.concat('', "e");
+              strTarget=strTarget.concat('', "e");
               index=index+5;  // enter
               break;
             case 'i':
-              str_target=str_target.concat('', "i");
+              strTarget=strTarget.concat('', "i");
               index=index+4;  //  imes
               break;
             case 'o':
-              str_target=str_target.concat('', "o");
+              strTarget=strTarget.concat('', "o");
               index=index+4;  // ober
               break;
             case 'u':
-              str_target=str_target.concat('', "u");
+              strTarget=strTarget.concat('', "u");
               index=index+4;  // ufat
               break;
       } // switch
       } // endif
     } // endwhile
-    //console.log(str_target);
+    arrayDesc.push(strTarget);
+    strTarget="";
   });
-  // guardar str_target en textArea entrada y borrar textArea salida
-  const str2="";
-  last.forEach(element => {
-    str2=str1.concat('',element);
-  });
-  mensaje.value=str2;
-  msgSalida.value="";
-  // return str_target;
+  // guardar strTarget en textArea entrada y borrar textArea salida
+  let texto=arrayDesc.join(' ');
+  console.log("ArrayDesc "+arrayDesc);
+  msgSalida.value=texto;
+  mensaje.value="";
 }
 
 function pasar_minusculas(str1){
@@ -164,9 +157,9 @@ function ejecutar(){
     alert("Proceso ok, de encriptar...");
   }
   
-  array_encr.forEach(element => {
+  arrayEncr.forEach(element => {
     console.log(element);
   });
-  var first=desencryptar(array_encr);
+  var first=desencryptar(arrayEncr);
   console.log(first);
 }

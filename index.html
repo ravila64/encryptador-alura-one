@@ -2,9 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/styles.css">
   <title>sprint 1:Encriptador Alura-One</title>
 </head>
@@ -21,19 +19,18 @@
         <ul class="opciones">
           <li><a href="">INICIO</a></li>
           <li><a href="">CONTACTO</a></li>
-          <!-- <li><a href="">help</a></li> -->
         </ul>
       </nav>
     </header>
       <div class="entrada">
         <!--entrada mensaje a encriptar-->
         <h3>Digite texto de entrada</h3>
-        <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
+        <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" ></textarea>
         <img src="./img/1.png">
       </div>
       <div class="salida">
         <!--Area mensaje encriptado-->
-        <textarea id="msgEncryt" cols="60" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
+        <textarea id="msgEncrypt" cols="60" rows="10" pattern="[a-z ]*" ></textarea>
       </div>
       <div class="msg-error">
         <!--Area mensajes error-->
