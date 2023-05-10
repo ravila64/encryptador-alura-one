@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/reset.css">
+  <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
+  <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/styles.css">
   <title>sprint 1:Encriptador Alura-One</title>
 </head>
@@ -24,17 +25,20 @@
     </header>
       <div class="entrada">
         <!--entrada mensaje a encriptar-->
-        <h3>Digite texto de entrada</h3>
+        <label for="message" class="lbl-txt-area">Digite texto de entrada</label><br>
         <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" ></textarea>
-        <img src="./img/1.png">
+        <img src="./img/1.png" class="img-1">
       </div>
       <div class="salida">
         <!--Area mensaje encriptado-->
-        <textarea id="msgEncrypt" cols="60" rows="10" pattern="[a-z ]*" ></textarea>
+        <label for="msgEncrypt" class="lbl-txt-area">Texto de salida</label><br>
+        <textarea id="msgEncrypt" cols="60%" rows="10" pattern="[a-z ]*" ></textarea>
       </div>
       <div class="msg-error">
         <!--Area mensajes error-->
-        <textarea id="msgError" cols="40" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
+        <label for="msgError" class="lbl-txt-area">Mensajes</label><br>
+        <textarea id="msgError" cols="40%" rows="10" pattern="[a-z ]*"></textarea>
+        <!-- esto va valida textarea oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')" -->
       </div>
       <div class="botones">
         <article class="caja">

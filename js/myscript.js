@@ -72,7 +72,7 @@ function encryptar(){
 btnDesEncripta.addEventListener("click",desencryptar);
 // ********** funcion desencriptar **********
 function desencryptar(){
-  alert("Entra a Desencriptar");
+  //alert("Entra a Desencriptar");
   const str = pasar_minusculas(mensaje.value.trim());
   const last=String(str).split(' ');   // array
   console.log("Last "+last);
@@ -124,11 +124,15 @@ function desencryptar(){
 function pasar_minusculas(str1){
   return String(str1).toLowerCase();
 }
-function validar_input(){
+function validate_input_text_area(){
+  const simbolos=['.','']
+
   var valida=true;
-  // <input type="text" id="input1" value="Hola">
-  // var contenido = document.getElementById("input1").value;
-  
+   let contenido = document.getElementById(message).value;
+   const str = pasar_minusculas(contenido.value.trim());
+   
+
+
   return valida;
 }
 
@@ -141,25 +145,4 @@ function _copy(){
 function _cut(){
 
 
-}
-
-function ejecutar(){
-  //let str="RENE avila alonso";
-  //guardar texto mensaje de ingreso
-   
-  if (validar_input(str)){
-    alert("Cadena ok, validada...!!!");
-  }else {
-    alert("Debe corregir caracteres especiales cadena de entrada");
-  }
-  var encripto=encryptar(str);
-  if (encripto!=null){
-    alert("Proceso ok, de encriptar...");
-  }
-  
-  arrayEncr.forEach(element => {
-    console.log(element);
-  });
-  var first=desencryptar(arrayEncr);
-  console.log(first);
 }

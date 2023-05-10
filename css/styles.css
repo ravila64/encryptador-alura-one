@@ -69,19 +69,11 @@ body{
   background: #8491f1;
 }
 
-#message{
+#message,#msgEncrypt {
   background-color: #86acf9;
   border-radius: 5px;
   resize: none;
   font-style: roboto;
-  text-transform: lowercase;
-  padding: 5px;
-}
-#msgEncryt{
-  background-color: #86acf9;
-  border-radius: 5px;
-  resize:none;
-  font-style: italic;
   text-transform: lowercase;
   padding: 5px;
 }
@@ -90,6 +82,17 @@ body{
   background-color: #b5cbf7;
   border-radius: 5px;
   resize:none;
+}
+
+.img-1{
+  border: 1px solid rgb(119, 119, 236);
+  border-radius: 3px;
+  justify-items: center;
+}
+
+.lbl-txt-area{
+  font-size: 15px ;
+  font-family: fantasy;
 }
 
 .container > textarea {
@@ -116,12 +119,11 @@ body{
 .container .msg-error{
   display: inline-block;
   margin-left: 10px;
-
 }
 
 .botones{
   display: flex;
-  width: 400px;
+  width: 500px;
   border: 1px solid white;
   padding: 15px 10px;
   margin: 0px auto;
