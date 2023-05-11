@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/styles.css">
   <title>sprint 1:Encriptador Alura-One</title>
@@ -15,30 +16,28 @@
         <img class="img-logo" src="./img/logo-encriptador.png" alt="logo"/>
       </div>
       <nav class="menu">
-        <h2 class="titulo">René Avila Alonso</h2>
+        <h2 class="titulo"</h2>René Avila Alonso</h2>
         <h2 class="titulo"> Sprint 01 - Alura-One- Encriptador</h2>
         <ul class="opciones">
           <li><a href="">INICIO</a></li>
           <li><a href="">CONTACTO</a></li>
+          <!-- <li><a href="">help</a></li> -->
         </ul>
       </nav>
     </header>
       <div class="entrada">
         <!--entrada mensaje a encriptar-->
-        <label for="message" class="lbl-txt-area">Digite texto de entrada</label><br>
-        <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" ></textarea>
-        <img src="./img/1.png" class="img-1">
+        <h3>Digite texto de entrada</h3>
+        <textarea id="message" cols="70" rows="10" placeholder="Write something here" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')">   </textarea>
+        <img src="./img/1.png">
       </div>
       <div class="salida">
         <!--Area mensaje encriptado-->
-        <label for="msgEncrypt" class="lbl-txt-area">Texto de salida</label><br>
-        <textarea id="msgEncrypt" cols="60%" rows="10" pattern="[a-z ]*" ></textarea>
+        <textarea id="msgEncryt" cols="60" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
       </div>
       <div class="msg-error">
         <!--Area mensajes error-->
-        <label for="msgError" class="lbl-txt-area">Mensajes</label><br>
-        <textarea id="msgError" cols="40%" rows="10" pattern="[a-z ]*"></textarea>
-        <!-- esto va valida textarea oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')" -->
+        <textarea id="msgError" cols="40" rows="10" pattern="[a-z ]*" oninput="this.value = this.value.replace(/[^a-z\n ]/g, '')"></textarea>
       </div>
       <div class="botones">
         <article class="caja">
