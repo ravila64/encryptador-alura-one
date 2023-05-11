@@ -69,19 +69,11 @@ body{
   background: #8491f1;
 }
 
-#message{
+#message, #msgEncrypt {
   background-color: #86acf9;
   border-radius: 5px;
   resize: none;
   font-style: roboto;
-  text-transform: lowercase;
-  padding: 5px;
-}
-#msgEncryt{
-  background-color: #86acf9;
-  border-radius: 5px;
-  resize:none;
-  font-style: italic;
   text-transform: lowercase;
   padding: 5px;
 }
@@ -188,6 +180,21 @@ body{
 }
 
 .pegar:hover{
-  background: #376bb9;
+  background: #045fe8dd;
 }
 
+.entrada img{
+  width: 23%;
+  height: auto;
+  color: white;
+  margin-left:5px;
+  border: 2px solid #376bb9;
+  border-radius: 10px 5px;
+  align-items: center;
+}
+
+.leyendas{
+  font-size: 20px;
+  color: rgba(0, 0, 255, 0.822);
+  font-style:bold;
+}

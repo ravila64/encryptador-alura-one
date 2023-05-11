@@ -6,26 +6,40 @@ La letra "u" es convertida para "ufat"
 console.log(str1.concat(' ', str2));*/
 
 // var globales
-var array_encr=[];
-var array_desencr=[];
-var str_target="";
+const arrayEncr=[];
+const arrayDesc=[];
 
-function encryptar(str){
-  var cadena=str.split(" ");
-  var strend=[];
-  for (const iterator of cadena) {
-    console.log(iterator);
-    strend.push(iterator);
-  }
-  console.log(strend);
+// definir botones
+/*enlace html con js*/
+var mensaje = document.getElementById("message");
+var msgSalida = document.getElementById("msgEncrypt");
+var msgError = document.getElementById("msgError");
+/*enlazar botones desde html con js */
+const btnEncripta = document.getElementById("btnEncrypt");
+const btnDesEncripta = document.getElementById("btnDesEncrypt");
+const btnCopiar = document.getElementById("btnCopy");
+const btnPegar = document.getElementById("btnPaste");
+
+// llamar codigo encryptar, al presionar boton
+btnEncripta.addEventListener("click",encryptar);
+// ********** funcion encriptar **********
+function encryptar(){
+  //alert("Entra a encriptar");
+  const str = pasar_minusculas(mensaje.value.trim());
+  console.log(str);
+  const cadena=String(str).split(' ');
+  console.log(cadena);
   var encr="";
-  strend.forEach(element => {
+  if(arrayEncr.length!=0){
+    _eliminar_array_encr();
+  }
+  cadena.forEach(element => {
     var str=element+" ";
     for (let index = 0; index < str.length; index++) {
       const letra = str[index];
       switch (letra) {
         case 'a':
-          encr=encr.concat('', "ai");;
+          encr=encr.concat('', "ai");
           break;
         case 'e':
           encr=encr.concat('', "enter");
@@ -45,54 +59,75 @@ function encryptar(str){
     }
     //console.log(letra);
   };
-  array_encr.push(encr);
+  arrayEncr.push(encr);
   encr="";
   });
-  return encr;
+  console.log(arrayEncr);
+  // colocar texto en salida encriptado y borrar entrada
+  let texto=arrayEncr.join(' ');
+  //console.log("Texto "+texto+ " Tipo "+typeof(texto));
+  msgSalida.value=texto;
+  mensaje.value="";
+  //console.log("msgSalida Tipo "+typeof(msgSalida));
 }
 
-function desencryptar(last){
-  console.log(last);
+// llamar codigo desencryptar, al presionar boton
+btnDesEncripta.addEventListener("click",desencryptar);
+// ********** funcion desencriptar **********
+function desencryptar(){
+  //alert("Entra a Desencriptar");
+  const str = pasar_minusculas(mensaje.value.trim());
+  const last=String(str).split(' ');   // array
+  console.log("Last "+last);
+  var strTarget="";
+  if(arrayDesc.length!=0){
+    _eliminar_array_desc();
+  }
   last.forEach(element => {
     var word=element;
     let index = 0;
     while (index < word.length ){
       const letra = word[index];
       if((letra!='a')&&(letra!='e')&&(letra!='i')&&(letra!='o')&&(letra!='u')){
-          str_target=str_target.concat('',letra);
+          strTarget=strTarget.concat('',letra);
           index++;
       } else {
          switch (letra) {
             case 'a':
-              str_target=str_target.concat('', "a");
+              strTarget=strTarget.concat('', "a");
               index=index+2;  // ai
               break;
             case 'e':
-              str_target=str_target.concat('', "e");
+              strTarget=strTarget.concat('', "e");
               index=index+5;  // enter
               break;
             case 'i':
-              str_target=str_target.concat('', "i");
+              strTarget=strTarget.concat('', "i");
               index=index+4;  //  imes
               break;
             case 'o':
-              str_target=str_target.concat('', "o");
+              strTarget=strTarget.concat('', "o");
               index=index+4;  // ober
               break;
             case 'u':
-              str_target=str_target.concat('', "u");
+              strTarget=strTarget.concat('', "u");
               index=index+4;  // ufat
               break;
       } // switch
       } // endif
     } // endwhile
-    //console.log(str_target);
+    arrayDesc.push(strTarget);
+    strTarget="";
   });
-  return str_target;
+  // guardar strTarget en textArea entrada y borrar textArea salida
+  let texto=arrayDesc.join(' ');
+  console.log("ArrayDesc "+arrayDesc);
+  msgSalida.value=texto;
+  mensaje.value="";
 }
 
-function pasar_minusculas(str){
-  return str.toLowerCase();
+function pasar_minusculas(str1){
+  return String(str1).toLowerCase();
 }
 function validar_input(){
   var valida=true;
@@ -102,30 +137,35 @@ function validar_input(){
   return valida;
 }
 
-
+// llamar codigo copiar, al presionar boton
+btnCopiar.addEventListener("click",_copy);
 function _copy(){
-
-
-}
-
-function _cut(){
-
+  alert("_copy");
 
 }
 
-let str="RENE avila alonso";
-//str="arroz al ABAD daba la zorra";
-str = pasar_minusculas(str);
+// llamar codigo pegar, al presionar boton
+btnPegar.addEventListener("click",_paste);
+function _paste(){
+  alert("_paste");
 
-if (validar_input(str)){
-
-}else {
-  alert("Debe corregir caracteres especiales cadena de entrada");
 }
-var last=encryptar(str);
-//console.log("last "+last);
-array_encr.forEach(element => {
-  console.log(element);
-});
-var first=desencryptar(array_encr);
-console.log(first);
+
+// eliminar elementos del arreglo
+function _eliminar_array_encr(){
+  //alert("Elimina arrayEncr");
+  let elementos=arrayEncr.length;
+  console.log("Elementos ",elementos, " ARRAY ",arrayEncr);
+  for (let index = 0; index < elementos; index++) {
+    arrayEncr.pop();
+  }
+}
+
+function _eliminar_array_desc(){
+  //alert("Elimina arrayEncr");
+  let elementos=arrayDesc.length;
+  console.log("Elementos ",elementos, " ARRAY ",arrayDesc);
+  for (let index = 0; index < elementos; index++) {
+    arrayDesc.pop();
+  }
+}
