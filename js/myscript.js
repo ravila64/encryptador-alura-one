@@ -30,8 +30,9 @@ function encryptar(){
   const cadena=String(str).split(' ');
   console.log(cadena);
   var encr="";
-  if(arrayEncr.length!=0){
+  if(str.length!=0){
     _eliminar_array_encr();
+    msgError.value="Elimando array encriptar";
   }
   cadena.forEach(element => {
     var str=element+" ";
@@ -82,7 +83,10 @@ function desencryptar(){
   var strTarget="";
   if(arrayDesc.length!=0){
     _eliminar_array_desc();
-  }
+  };
+  if (str.length==0){
+      msgError.value="No hay texto para desencriptar !!!";
+  };
   last.forEach(element => {
     var word=element;
     let index = 0;
