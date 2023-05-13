@@ -23,10 +23,13 @@ function encryptar(){
   const cadena=String(str).split(' ');
   console.log(cadena);
   var encr="";
-  msgError.value="sin mensajes";
+  msgError.value="";
+  if (!valide_input()){
+    msgError="No digite números o símbolos especiales";
+  }
   if(str.length!=0){
     _eliminar_array_encr();
-    //msgError.value="Limpiando variables ....";
+    msgError.value="Limpiando variables ....";
   }else{
     msgError.value="Debe tener mensaje a encriptar....";
     return;
@@ -134,11 +137,31 @@ function desencryptar(){
 function pasar_minusculas(str1){
   return String(str1).toLowerCase();
 }
-function validar_input(){
-  var valida=true;
-  // <input type="text" id="input1" value="Hola">
-  // var contenido = document.getElementById("input1").value;
-  
+
+function valide_input(){
+  var valida=false;
+  var cadena="";
+  const str = pasar_minusculas(mensaje.value.trim());
+  const array_str=String(str).split(' ');
+  console.log("str "+str);
+  console.log("array_str "+array_str);
+  for (let ind = 0; ind < array_str.length; ind++ ){
+    cadena = array_str[ind];    
+    console.log("element "+cadena);
+    for (let index = 0; index < cadena.length; index++) {
+      car = cadena[index];
+      console.log("Car "+car);
+      if ((car>='a' && car<='z')||(car==" ")){
+        valida=true;
+      }else{
+        valida=false;
+        break;
+      }
+    }
+    if(!valida){
+      break;
+    }
+  }
   return valida;
 }
 
@@ -153,7 +176,6 @@ function _copy(){
    }
     else{
       msgError.value="No hay texto a copiar, en salida !!!";
-      //alert("No hay texto a copiar, en salida");
     }
 }
 
