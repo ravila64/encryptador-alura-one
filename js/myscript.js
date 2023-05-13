@@ -144,8 +144,15 @@ function validar_input(){
 // llamar codigo copiar, al presionar boton
 btnCopiar.addEventListener("click",_copy);
 function _copy(){
-  alert("_copy");
-
+  //alert("_copy");
+  if(msgSalida.value != ""){
+    msgSalida.select();
+    document.execCommand("copy");
+    navigator.clipboard.writeText(msgSalida.value);
+   }
+    else{
+        alert("No hay texto a copiar");
+    }
 }
 
 // llamar codigo pegar, al presionar boton
