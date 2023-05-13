@@ -1,10 +1,3 @@
-/* La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
-console.log(str1.concat(' ', str2));*/
-
 // var globales
 const arrayEncr=[];
 const arrayDesc=[];
@@ -18,7 +11,7 @@ var msgError = document.getElementById("msgError");
 const btnEncripta = document.getElementById("btnEncrypt");
 const btnDesEncripta = document.getElementById("btnDesEncrypt");
 const btnCopiar = document.getElementById("btnCopy");
-const btnPegar = document.getElementById("btnPaste");
+const btnClear = document.getElementById("btnClear");
 
 // llamar codigo encryptar, al presionar boton
 btnEncripta.addEventListener("click",encryptar);
@@ -30,9 +23,12 @@ function encryptar(){
   const cadena=String(str).split(' ');
   console.log(cadena);
   var encr="";
+  msgError.value="sin mensajes";
   if(str.length!=0){
     _eliminar_array_encr();
-    msgError.value="Elimando array encriptar";
+    //msgError.value="Limpiando variables ....";
+  }else{
+    msgError.value="Debe tener mensaje a encriptar....";
   }
   cadena.forEach(element => {
     var str=element+" ";
@@ -81,11 +77,13 @@ function desencryptar(){
   const last=String(str).split(' ');   // array
   console.log("Last "+last);
   var strTarget="";
+  msgError.value=""
+  msgSalida.value=""
   if(arrayDesc.length!=0){
     _eliminar_array_desc();
   };
   if (str.length==0){
-      msgError.value="No hay texto para desencriptar !!!";
+      msgError.value="No hay mensaje para desencriptar !!!";
   };
   last.forEach(element => {
     var word=element;
@@ -151,15 +149,19 @@ function _copy(){
     navigator.clipboard.writeText(msgSalida.value);
    }
     else{
-        alert("No hay texto a copiar");
+      msgError.value="No hay texto a copiar, en salida !!!";
+      //alert("No hay texto a copiar, en salida");
     }
 }
 
 // llamar codigo pegar, al presionar boton
-btnPegar.addEventListener("click",_paste);
-function _paste(){
-  alert("_paste");
-
+btnClear.addEventListener("click",_clear);
+function _clear(){
+  _eliminar_array_encr();
+  _eliminar_array_desc();
+  mensaje.value=""
+  msgSalida.value=""
+  msgError.value=""
 }
 
 // eliminar elementos del arreglo
