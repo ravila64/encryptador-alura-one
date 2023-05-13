@@ -29,6 +29,7 @@ function encryptar(){
     //msgError.value="Limpiando variables ....";
   }else{
     msgError.value="Debe tener mensaje a encriptar....";
+    return;
   }
   cadena.forEach(element => {
     var str=element+" ";
@@ -84,48 +85,50 @@ function desencryptar(){
   };
   if (str.length==0){
       msgError.value="No hay mensaje para desencriptar !!!";
-  };
-  last.forEach(element => {
-    var word=element;
-    let index = 0;
-    while (index < word.length ){
-      const letra = word[index];
-      if((letra!='a')&&(letra!='e')&&(letra!='i')&&(letra!='o')&&(letra!='u')){
-          strTarget=strTarget.concat('',letra);
-          index++;
-      } else {
-         switch (letra) {
-            case 'a':
-              strTarget=strTarget.concat('', "a");
-              index=index+2;  // ai
-              break;
-            case 'e':
-              strTarget=strTarget.concat('', "e");
-              index=index+5;  // enter
-              break;
-            case 'i':
-              strTarget=strTarget.concat('', "i");
-              index=index+4;  //  imes
-              break;
-            case 'o':
-              strTarget=strTarget.concat('', "o");
-              index=index+4;  // ober
-              break;
-            case 'u':
-              strTarget=strTarget.concat('', "u");
-              index=index+4;  // ufat
-              break;
-      } // switch
-      } // endif
-    } // endwhile
-    arrayDesc.push(strTarget);
-    strTarget="";
-  });
-  // guardar strTarget en textArea entrada y borrar textArea salida
-  let texto=arrayDesc.join(' ');
-  console.log("ArrayDesc "+arrayDesc);
-  msgSalida.value=texto;
-  mensaje.value="";
+  }
+  else {
+    last.forEach(element => {
+      var word=element;
+      let index = 0;
+      while (index < word.length ){
+        const letra = word[index];
+        if((letra!='a')&&(letra!='e')&&(letra!='i')&&(letra!='o')&&(letra!='u')){
+            strTarget=strTarget.concat('',letra);
+            index++;
+        } else {
+           switch (letra) {
+              case 'a':
+                strTarget=strTarget.concat('', "a");
+                index=index+2;  // ai
+                break;
+              case 'e':
+                strTarget=strTarget.concat('', "e");
+                index=index+5;  // enter
+                break;
+              case 'i':
+                strTarget=strTarget.concat('', "i");
+                index=index+4;  //  imes
+                break;
+              case 'o':
+                strTarget=strTarget.concat('', "o");
+                index=index+4;  // ober
+                break;
+              case 'u':
+                strTarget=strTarget.concat('', "u");
+                index=index+4;  // ufat
+                break;
+        } // switch
+        } // endif
+      } // endwhile
+      arrayDesc.push(strTarget);
+      strTarget="";
+    });
+    // guardar strTarget en textArea entrada y borrar textArea salida
+    let texto=arrayDesc.join(' ');
+    console.log("ArrayDesc "+arrayDesc);
+    msgSalida.value=texto;
+    mensaje.value="";
+  }
 }
 
 function pasar_minusculas(str1){
