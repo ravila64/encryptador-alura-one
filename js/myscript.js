@@ -24,15 +24,15 @@ function encryptar(){
   console.log(cadena);
   var encr="";
   msgError.value="";
-  if (!valide_input()){
-    msgError="No digite números o símbolos especiales";
-  }
   if(str.length!=0){
     _eliminar_array_encr();
     msgError.value="Limpiando variables ....";
   }else{
     msgError.value="Debe tener mensaje a encriptar....";
     return;
+  }
+  if (!valide_input()){
+    msgError="No digite números o símbolos especiales";
   }
   cadena.forEach(element => {
     var str=element+" ";
@@ -169,10 +169,23 @@ function valide_input(){
 btnCopiar.addEventListener("click",_copy);
 function _copy(){
   //alert("_copy");
+  var texto="";
   if(msgSalida.value != ""){
     msgSalida.select();
     document.execCommand("copy");
     navigator.clipboard.writeText(msgSalida.value);
+    navigator.clipboard.readText()
+    .then(text => {
+      mensaje.value=text;
+      console.log('Texto del portapapeles:', text)
+    })
+    .catch(err => {
+      msgError.value=String(err);
+      console.error('Error al leer del portapapeles:', err)
+    });
+     mensaje.value=texto;
+    //  msgSalida.value="";
+    //  msgError="Seleccione [permitir]";
    }
     else{
       msgError.value="No hay texto a copiar, en salida !!!";

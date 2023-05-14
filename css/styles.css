@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body{
   background: #d2e7de;
@@ -17,6 +18,14 @@ body{
   background: #1551a1;
   overflow: hidden;
   height: 85px;
+}
+
+.foot{
+  background: #1551a1;
+  overflow: hidden;
+  height: 85px;
+  color:white;
+  margin: 0 auto;
 }
 
 .logo{
@@ -129,7 +138,6 @@ body{
 .container .msg-error{
   display: inline-block;
   margin-left: 10px;
-
 }
 
 .botones{
@@ -214,9 +222,18 @@ body{
   align-items: center;
 }
 
+.leyenda{
+  font-size: 22px;
+  color: rgba(0, 0, 255, 0.822);
+  font-style:bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-top: 5px;
+  margin-left:5px;
+}
 .leyendas{
   font-size: 22px;
   color: rgba(0, 0, 255, 0.822);
   font-style:bold;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0 auto;
 }
