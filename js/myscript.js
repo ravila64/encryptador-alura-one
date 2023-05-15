@@ -31,45 +31,49 @@ function encryptar(){
     msgError.value="Debe tener mensaje a encriptar....";
     return;
   }
-  if (!valide_input()){
-    msgError="No digite números o símbolos especiales";
+  if(!validarTexto()){
+    msgError.value="El texto solo puede contener letras minúsculas y espacios";
+    return 
+  }else {
+    // PROCESO CON CADENA 
+      cadena.forEach(element => {
+        var str=element+" ";
+        for (let index = 0; index < str.length; index++) {
+          const letra = str[index];
+          switch (letra) {
+            case 'a':
+              encr=encr.concat('', "ai");
+              break;
+            case 'e':
+              encr=encr.concat('', "enter");
+              break;
+            case 'i':
+              encr=encr.concat('', "imes");
+              break;
+            case 'o':
+              encr=encr.concat('', "ober");
+              break;
+            case 'u':
+              encr=encr.concat('', "ufat");
+              break;
+            default:
+              encr=encr.concat('', letra);
+              break;  
+        }
+        //console.log(letra);
+      };
+      arrayEncr.push(encr);
+      encr="";
+      });
+      console.log(arrayEncr);
+      // colocar texto en salida encriptado y borrar entrada
+      let texto=arrayEncr.join(' ');
+      //console.log("Texto "+texto+ " Tipo "+typeof(texto));
+      msgSalida.value=texto;
+      mensaje.value="";
+      //console.log("msgSalida Tipo "+typeof(msgSalida));
   }
-  cadena.forEach(element => {
-    var str=element+" ";
-    for (let index = 0; index < str.length; index++) {
-      const letra = str[index];
-      switch (letra) {
-        case 'a':
-          encr=encr.concat('', "ai");
-          break;
-        case 'e':
-          encr=encr.concat('', "enter");
-          break;
-        case 'i':
-          encr=encr.concat('', "imes");
-          break;
-        case 'o':
-          encr=encr.concat('', "ober");
-          break;
-        case 'u':
-          encr=encr.concat('', "ufat");
-          break;
-        default:
-          encr=encr.concat('', letra);
-          break;  
-    }
-    //console.log(letra);
-  };
-  arrayEncr.push(encr);
-  encr="";
-  });
-  console.log(arrayEncr);
-  // colocar texto en salida encriptado y borrar entrada
-  let texto=arrayEncr.join(' ');
-  //console.log("Texto "+texto+ " Tipo "+typeof(texto));
-  msgSalida.value=texto;
-  mensaje.value="";
-  //console.log("msgSalida Tipo "+typeof(msgSalida));
+
 }
 
 // llamar codigo desencryptar, al presionar boton
@@ -138,31 +142,17 @@ function pasar_minusculas(str1){
   return String(str1).toLowerCase();
 }
 
-function valide_input(){
-  var valida=false;
-  var cadena="";
-  const str = pasar_minusculas(mensaje.value.trim());
-  const array_str=String(str).split(' ');
-  console.log("str "+str);
-  console.log("array_str "+array_str);
-  for (let ind = 0; ind < array_str.length; ind++ ){
-    cadena = array_str[ind];    
-    console.log("element "+cadena);
-    for (let index = 0; index < cadena.length; index++) {
-      car = cadena[index];
-      console.log("Car "+car);
-      if ((car>='a' && car<='z')||(car==" ")){
-        valida=true;
-      }else{
-        valida=false;
-        break;
-      }
-    }
-    if(!valida){
-      break;
-    }
+// validar texto.
+function validarTexto() {
+  var textarea = document.getElementById("message");
+  var txt = textarea.value;
+  var regex = /^[A-Za-z\s]+$/; // Expresión regular para letras y espacios
+  if (!regex.test(txt)) {
+        //alert("El texto solo puede contener letras y espacios.");
+    return false;
+  }else{
+    return true;
   }
-  return valida;
 }
 
 // llamar codigo copiar, al presionar boton
@@ -220,3 +210,4 @@ function _eliminar_array_desc(){
     arrayDesc.pop();
   }
 }
+
