@@ -32,7 +32,8 @@ function encryptar(){
     return;
   }
   if(!validarTexto()){
-    msgError.value="El texto solo puede contener letras minúsculas y espacios";
+    msgError.value="El texto solo puede contener letras minúsculas y espacios, sin tíldes o símbolos especiales";
+    message="El texto solo puede contener letras minusculas y espacios";
     return 
   }else {
     // PROCESO CON CADENA 
@@ -73,8 +74,6 @@ function encryptar(){
       mensaje.value="";
       //console.log("msgSalida Tipo "+typeof(msgSalida));
   }
-
-}
 
 // llamar codigo desencryptar, al presionar boton
 btnDesEncripta.addEventListener("click",desencryptar);
