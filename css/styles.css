@@ -23,9 +23,10 @@ body{
 .foot{
   background: #1551a1;
   overflow: hidden;
-  height: 85px;
+  height: 18px;
   color:white;
   margin: 0 auto;
+  text-align: center;
 }
 
 .logo{

@@ -34,46 +34,46 @@ function encryptar(){
   if(!validarTexto()){
     msgError.value="El texto solo puede contener letras minúsculas y espacios, sin tíldes o símbolos especiales";
     message="El texto solo puede contener letras minusculas y espacios";
-    return 
-  }else {
-    // PROCESO CON CADENA 
-      cadena.forEach(element => {
-        var str=element+" ";
-        for (let index = 0; index < str.length; index++) {
-          const letra = str[index];
-          switch (letra) {
-            case 'a':
-              encr=encr.concat('', "ai");
-              break;
-            case 'e':
-              encr=encr.concat('', "enter");
-              break;
-            case 'i':
-              encr=encr.concat('', "imes");
-              break;
-            case 'o':
-              encr=encr.concat('', "ober");
-              break;
-            case 'u':
-              encr=encr.concat('', "ufat");
-              break;
-            default:
-              encr=encr.concat('', letra);
-              break;  
-        }
-        //console.log(letra);
-      };
-      arrayEncr.push(encr);
-      encr="";
-      });
-      console.log(arrayEncr);
-      // colocar texto en salida encriptado y borrar entrada
-      let texto=arrayEncr.join(' ');
-      //console.log("Texto "+texto+ " Tipo "+typeof(texto));
-      msgSalida.value=texto;
-      mensaje.value="";
-      //console.log("msgSalida Tipo "+typeof(msgSalida));
+    return;
   }
+  // PROCESO CON CADENA 
+  cadena.forEach(element => {
+    var str=element+" ";
+    for (let index = 0; index < str.length; index++) {
+      const letra = str[index];
+      switch (letra) {
+        case 'a':
+          encr=encr.concat('', "ai");
+          break;
+        case 'e':
+          encr=encr.concat('', "enter");
+          break;
+        case 'i':
+          encr=encr.concat('', "imes");
+          break;
+        case 'o':
+          encr=encr.concat('', "ober");
+          break;
+        case 'u':
+          encr=encr.concat('', "ufat");
+          break;
+        default:
+          encr=encr.concat('', letra);
+          break;  
+    }
+      //console.log(letra);
+    };
+    arrayEncr.push(encr);
+    encr="";
+    });
+    console.log(arrayEncr);
+    // colocar texto en salida encriptado y borrar entrada
+    let texto=arrayEncr.join(' ');
+    //console.log("Texto "+texto+ " Tipo "+typeof(texto));
+    msgSalida.value=texto;
+    mensaje.value="";
+    //console.log("msgSalida Tipo "+typeof(msgSalida));
+}
 
 // llamar codigo desencryptar, al presionar boton
 btnDesEncripta.addEventListener("click",desencryptar);
@@ -93,6 +93,11 @@ function desencryptar(){
       msgError.value="No hay mensaje para desencriptar !!!";
   }
   else {
+    if(!validarTexto()){
+      msgError.value="El texto solo puede contener letras minúsculas y espacios, sin tíldes o símbolos especiales";
+      message="El texto solo puede contener letras minusculas y espacios";
+      return;
+    }
     last.forEach(element => {
       var word=element;
       let index = 0;
@@ -102,7 +107,7 @@ function desencryptar(){
             strTarget=strTarget.concat('',letra);
             index++;
         } else {
-           switch (letra) {
+          switch (letra) {
               case 'a':
                 strTarget=strTarget.concat('', "a");
                 index=index+2;  // ai
@@ -134,7 +139,7 @@ function desencryptar(){
     console.log("ArrayDesc "+arrayDesc);
     msgSalida.value=texto;
     mensaje.value="";
-  }
+    }
 }
 
 function pasar_minusculas(str1){
@@ -149,15 +154,15 @@ function validarTexto() {
   if (!regex.test(txt)) {
         //alert("El texto solo puede contener letras y espacios.");
     return false;
-  }else{
-    return true;
   }
+  return true;
 }
 
 // llamar codigo copiar, al presionar boton
 btnCopiar.addEventListener("click",_copy);
 function _copy(){
   //alert("_copy");
+  msgError="Seleccione [permitir], en caso de pregunta en su explorador";
   var texto="";
   if(msgSalida.value != ""){
     msgSalida.select();
@@ -172,9 +177,8 @@ function _copy(){
       msgError.value=String(err);
       console.error('Error al leer del portapapeles:', err)
     });
-     mensaje.value=texto;
-    //  msgSalida.value="";
-    //  msgError="Seleccione [permitir]";
+    mensaje.value=texto;
+    msgSalida.value="";
    }
     else{
       msgError.value="No hay texto a copiar, en salida !!!";
