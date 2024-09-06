@@ -20,7 +20,10 @@ Por ejemplo:
 gaitober" => "gato"
 
 •	La página debe tener campos para
-inserción del texto que será encriptado o desencriptado, y el usuario debe poder escoger entre as dos opciones.
+inserción del texto que será encriptado o desencriptado, y el usuario debe poder escoger entre las dos opciones.
 •	El resultado debe ser mostrado en la pantalla.
 Extras:
 •	Un botón que copie el texto encriptado/desencriptado para la sección de transferencia, o sea que tenga la misma funcionalidad del ctrl+C o de la opción "copiar" del menú de las aplicaciones.
+
+Development by, Rene Avila Alonso.
+
